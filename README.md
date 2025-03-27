@@ -95,3 +95,15 @@ This is the place for you to write reflections:
    In Rust, static variables must be thread-safe and immutable by default. Rust’s strict ownership and concurrency rules prevent unsafe access to mutable static variables. Using lazy_static safely initializes complex static values like Vec or DashMap and wraps them in safe concurrency primitives like RwLock. Unlike Java, Rust prioritizes safety at compile time, so it doesn't allow direct mutation of static variables without proper synchronization.
 
 #### Reflection Subscriber-2
+
+1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+
+   I haven’t explored src/lib.rs or other parts beyond the main tutorial flow yet. Since the tutorial already provided a detailed and guided structure, I focused on completing all the steps first to understand the flow clearly.
+
+2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+
+    The Observer pattern makes it very easy to add new subscribers. Each receiver app instance just needs to subscribe to a product type and the Main app will automatically notify it. If we try to add multiple Main app instances, this would make it more complicated because they need to share consistent subscriber data. Without a shared database, we might run into sync issues between publishers.
+
+3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+
+   I explored the Postman collection but I have not tried making my own Tests. I mostly used the provided requests to test basic functionality like subscribing and receiving notifications. I do think Postman could be helpful for larger projects, especially for automating tests and organizing request groups, but I didn’t get a chance to try that out during this tutorial.
